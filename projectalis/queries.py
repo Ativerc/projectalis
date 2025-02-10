@@ -3,7 +3,7 @@
 create_project_tags_table_query = """
 CREATE TABLE IF NOT EXISTS project_tags(
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-project_tag TEXT,
+project_tag TEXT UNIQUE,
 description TEXT
 );
 """
@@ -18,15 +18,15 @@ description TEXT
 create_notes_table_query = """
 CREATE TABLE IF NOT EXISTS notes(
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-app TEXT,
+app TEXT UNIQUE,
 url TEXT
 );"""
 
 create_workspace_dirs_table_query = """
 CREATE TABLE IF NOT EXISTS workspace_dirs(
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-name TEXT,
-path TEXT,
+name TEXT UNIQUE,
+path TEXT UNIQUE,
 project_tag_id INTEGER,
 FOREIGN KEY(project_tag_id) REFERENCES project_tags(id)
 );
@@ -35,8 +35,8 @@ FOREIGN KEY(project_tag_id) REFERENCES project_tags(id)
 create_projects_table_query = """
 CREATE TABLE IF NOT EXISTS projects(
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-name TEXT,
-path TEXT,
+name TEXT UNIQUE,
+path TEXT UNIQUE,
 git_remote_url TEXT,
 last_modified_date DATE,
 workspace_dir_id INTEGER,

@@ -13,11 +13,11 @@ conn = sqlite3.connect(DB_FILEPATH)
 def create_tables():
     cur = conn.cursor()
     script = (f"""
-                    {create_project_tags_table_query}
-                    {create_notes_table_query}
-                    {create_workspace_dirs_table_query}
-                    {create_projects_table_query}
-                    """)
+                {create_project_tags_table_query}
+                {create_notes_table_query}
+                {create_workspace_dirs_table_query}
+                {create_projects_table_query}
+                """)
     cur.executescript(script)
 
 def insert_into_projects_table(data):
