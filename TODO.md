@@ -3,7 +3,6 @@
 - [x] - Create and connect to DB
 - [x] - Tables for
   - [x] project_tags
-  - [x] git_remotes
   - [x] notes
   - [x] workspace_dirs
   - [x] projects
